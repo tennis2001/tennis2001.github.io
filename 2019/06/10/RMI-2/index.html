@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>RMI线程启动(2) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="sun.rmi.transport.tcp.TCPTransport123456789101112public void run() &amp;#123;        try &amp;#123;            this.executeAcceptLoop();#下一步        &amp;#125; finally &amp;#123;            try &amp;#123;                t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RMI线程启动(2)">
+<meta property="og:url" content="http://yoursite.com/2019/06/10/RMI-2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="sun.rmi.transport.tcp.TCPTransport123456789101112public void run() &amp;#123;        try &amp;#123;            this.executeAcceptLoop();#下一步        &amp;#125; finally &amp;#123;            try &amp;#123;                t">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-10T08:33:52.100Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RMI线程启动(2)">
+<meta name="twitter:description" content="sun.rmi.transport.tcp.TCPTransport123456789101112public void run() &amp;#123;        try &amp;#123;            this.executeAcceptLoop();#下一步        &amp;#125; finally &amp;#123;            try &amp;#123;                t">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-RMI-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/10/RMI-2/" class="article-date">
+  <time datetime="2019-06-10T08:20:25.000Z" itemprop="datePublished">2019-06-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      RMI线程启动(2)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="sun-rmi-transport-tcp-TCPTransport"><a href="#sun-rmi-transport-tcp-TCPTransport" class="headerlink" title="sun.rmi.transport.tcp.TCPTransport"></a>sun.rmi.transport.tcp.TCPTransport</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public void <span class="function"><span class="title">run</span></span>() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            this.executeAcceptLoop();<span class="comment">#下一步</span></span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                this.serverSocket.close();</span><br><span class="line">            &#125; catch (IOException var7) &#123;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">private void <span class="function"><span class="title">executeAcceptLoop</span></span>() &#123;</span><br><span class="line">           <span class="keyword">if</span> (TCPTransport.tcpLog.isLoggable(Log.BRIEF)) &#123;</span><br><span class="line">               TCPTransport.tcpLog.log(Log.BRIEF, <span class="string">"listening on port "</span> + TCPTransport.this.getEndpoint().getPort());</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">               Socket var1 = null;</span><br><span class="line"></span><br><span class="line">               try &#123;</span><br><span class="line">                   var1 = this.serverSocket.accept();<span class="comment">#下一步</span></span><br><span class="line">                   InetAddress var16 = var1.getInetAddress();</span><br><span class="line">                   String var3 = var16 != null ? var16.getHostAddress() : <span class="string">"0.0.0.0"</span>;</span><br><span class="line"></span><br><span class="line">                   try &#123;</span><br><span class="line">                       TCPTransport.connectionThreadPool.execute(TCPTransport.this.new ConnectionHandler(var1, var3));</span><br><span class="line">                   &#125; catch (RejectedExecutionException var11) &#123;</span><br><span class="line">                       TCPTransport.closeSocket(var1);</span><br><span class="line">                       TCPTransport.tcpLog.log(Log.BRIEF, <span class="string">"rejected connection from "</span> + var3);</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125; catch (Throwable var15) &#123;</span><br><span class="line">                   Throwable var2 = var15;</span><br><span class="line"></span><br><span class="line">                   try &#123;</span><br><span class="line">                       <span class="keyword">if</span> (this.serverSocket.isClosed()) &#123;</span><br><span class="line">                           <span class="built_in">return</span>;</span><br><span class="line">                       &#125;</span><br><span class="line"></span><br><span class="line">                       try &#123;</span><br><span class="line">                           <span class="keyword">if</span> (TCPTransport.tcpLog.isLoggable(Level.WARNING)) &#123;</span><br><span class="line">                               TCPTransport.tcpLog.log(Level.WARNING, <span class="string">"accept loop for "</span> + this.serverSocket + <span class="string">" throws"</span>, var2);</span><br><span class="line">                           &#125;</span><br><span class="line">                       &#125; catch (Throwable var13) &#123;</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125; finally &#123;</span><br><span class="line">                       <span class="keyword">if</span> (var1 != null) &#123;</span><br><span class="line">                           TCPTransport.closeSocket(var1);</span><br><span class="line">                       &#125;</span><br><span class="line"></span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">if</span> (!(var15 instanceof SecurityException)) &#123;</span><br><span class="line">                       try &#123;</span><br><span class="line">                           TCPEndpoint.shedConnectionCaches();</span><br><span class="line">                       &#125; catch (Throwable var12) &#123;</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">if</span> (!(var15 instanceof Exception) &amp;&amp; !(var15 instanceof OutOfMemoryError) &amp;&amp; !(var15 instanceof NoClassDefFoundError)) &#123;</span><br><span class="line">                       <span class="keyword">if</span> (var15 instanceof Error) &#123;</span><br><span class="line">                           throw (Error)var15;</span><br><span class="line">                       &#125;</span><br><span class="line"></span><br><span class="line">                       throw new UndeclaredThrowableException(var15);</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">if</span> (!this.continueAfterAcceptFailure(var15)) &#123;</span><br><span class="line">                       <span class="built_in">return</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="java-net-ServerSocket"><a href="#java-net-ServerSocket" class="headerlink" title="java.net.ServerSocket"></a>java.net.ServerSocket</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public Socket accept() throws IOException &#123;</span><br><span class="line">       <span class="keyword">if</span> (isClosed())</span><br><span class="line">           throw new SocketException(<span class="string">"Socket is closed"</span>);</span><br><span class="line">       <span class="keyword">if</span> (!isBound())</span><br><span class="line">           throw new SocketException(<span class="string">"Socket is not bound yet"</span>);</span><br><span class="line">       Socket s = new Socket((SocketImpl) null);</span><br><span class="line">       implAccept(s);<span class="comment">#下一步</span></span><br><span class="line">       <span class="built_in">return</span> s;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">protected final void implAccept(Socket s) throws IOException &#123;</span><br><span class="line">        SocketImpl si = null;</span><br><span class="line">        try &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.impl == null)</span><br><span class="line">              s.setImpl();</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                s.impl.reset();</span><br><span class="line">            &#125;</span><br><span class="line">            si = s.impl;</span><br><span class="line">            s.impl = null;</span><br><span class="line">            si.address = new InetAddress();</span><br><span class="line">            si.fd = new FileDescriptor();</span><br><span class="line">            getImpl().accept(si);<span class="comment">#下一步</span></span><br><span class="line"></span><br><span class="line">            SecurityManager security = System.getSecurityManager();</span><br><span class="line">            <span class="keyword">if</span> (security != null) &#123;</span><br><span class="line">                security.checkAccept(si.getInetAddress().getHostAddress(),</span><br><span class="line">                                     si.getPort());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            <span class="keyword">if</span> (si != null)</span><br><span class="line">                si.reset();</span><br><span class="line">            s.impl = si;</span><br><span class="line">            throw e;</span><br><span class="line">        &#125; catch (SecurityException e) &#123;</span><br><span class="line">            <span class="keyword">if</span> (si != null)</span><br><span class="line">                si.reset();</span><br><span class="line">            s.impl = si;</span><br><span class="line">            throw e;</span><br><span class="line">        &#125;</span><br><span class="line">        s.impl = si;</span><br><span class="line">        s.postAccept();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="java-net-PlainSocketImpl"><a href="#java-net-PlainSocketImpl" class="headerlink" title="java.net.PlainSocketImpl"></a>java.net.PlainSocketImpl</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">protected synchronized void accept(SocketImpl s) throws IOException &#123;</span><br><span class="line">        <span class="keyword">if</span> (s instanceof PlainSocketImpl) &#123;</span><br><span class="line">            // pass <span class="keyword">in</span> the real impl not the wrapper.</span><br><span class="line">            SocketImpl delegate = ((PlainSocketImpl)s).impl;</span><br><span class="line">            delegate.address = new InetAddress();</span><br><span class="line">            delegate.fd = new FileDescriptor();</span><br><span class="line">            impl.accept(delegate);<span class="comment">#下一步</span></span><br><span class="line">            // <span class="built_in">set</span> fd to delegate<span class="string">'s fd to be compatible with older releases</span></span><br><span class="line"><span class="string">            s.fd = delegate.fd;</span></span><br><span class="line"><span class="string">        &#125; else &#123;</span></span><br><span class="line"><span class="string">            impl.accept(s);</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="java-net-AbstractPlainSocketImpl"><a href="#java-net-AbstractPlainSocketImpl" class="headerlink" title="java.net.AbstractPlainSocketImpl"></a>java.net.AbstractPlainSocketImpl</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">protected void accept(SocketImpl s) throws IOException &#123;</span><br><span class="line">       acquireFD();</span><br><span class="line">       try &#123;</span><br><span class="line">           socketAccept(s);<span class="comment">#下一步</span></span><br><span class="line">       &#125; finally &#123;</span><br><span class="line">           releaseFD();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="java-net-DualStackPlainSocketImpl"><a href="#java-net-DualStackPlainSocketImpl" class="headerlink" title="java.net.DualStackPlainSocketImpl"></a>java.net.DualStackPlainSocketImpl</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">void socketAccept(SocketImpl s) throws IOException &#123;</span><br><span class="line">        int nativefd = checkAndReturnNativeFD();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (s == null)</span><br><span class="line">            throw new NullPointerException(<span class="string">"socket is null"</span>);</span><br><span class="line"></span><br><span class="line">        int newfd = -1;</span><br><span class="line">        InetSocketAddress[] isaa = new InetSocketAddress[1];</span><br><span class="line">        <span class="keyword">if</span> (timeout &lt;= 0) &#123;</span><br><span class="line">            newfd = accept0(nativefd, isaa);<span class="comment">#下一步</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            configureBlocking(nativefd, <span class="literal">false</span>);</span><br><span class="line">            try &#123;</span><br><span class="line">                waitForNewConnection(nativefd, timeout);</span><br><span class="line">                newfd = accept0(nativefd, isaa);</span><br><span class="line">                <span class="keyword">if</span> (newfd != -1) &#123;</span><br><span class="line">                    configureBlocking(newfd, <span class="literal">true</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; finally &#123;</span><br><span class="line">                configureBlocking(nativefd, <span class="literal">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        /* Update (SocketImpl)s<span class="string">' fd */</span></span><br><span class="line"><span class="string">        fdAccess.set(s.fd, newfd);</span></span><br><span class="line"><span class="string">        /* Update socketImpls remote port, address and localport */</span></span><br><span class="line"><span class="string">        InetSocketAddress isa = isaa[0];</span></span><br><span class="line"><span class="string">        s.port = isa.getPort();</span></span><br><span class="line"><span class="string">        s.address = isa.getAddress();</span></span><br><span class="line"><span class="string">        s.localport = localport;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static native int accept0(int fd, InetSocketAddress[] isaa) throws IOException;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/10/RMI-2/" data-id="cjwq4dxud0001asuvhetjxqhd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/06/RMI/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">RMI线程启动</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/10/RMI-2/">RMI线程启动(2)</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/06/RMI/">RMI线程启动</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/06/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
