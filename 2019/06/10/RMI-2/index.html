@@ -7,17 +7,17 @@
   
   <title>RMI线程启动(2) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="sun.rmi.transport.tcp.TCPTransport123456789101112public void run() &amp;#123;        try &amp;#123;            this.executeAcceptLoop();#下一步        &amp;#125; finally &amp;#123;            try &amp;#123;                t">
+  <meta name="description" content="RMI TCP Accept线程启动(2)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RMI线程启动(2)">
 <meta property="og:url" content="http://yoursite.com/2019/06/10/RMI-2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="sun.rmi.transport.tcp.TCPTransport123456789101112public void run() &amp;#123;        try &amp;#123;            this.executeAcceptLoop();#下一步        &amp;#125; finally &amp;#123;            try &amp;#123;                t">
+<meta property="og:description" content="RMI TCP Accept线程启动(2)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-10T08:33:52.100Z">
+<meta property="og:updated_time" content="2019-06-10T08:50:02.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RMI线程启动(2)">
-<meta name="twitter:description" content="sun.rmi.transport.tcp.TCPTransport123456789101112public void run() &amp;#123;        try &amp;#123;            this.executeAcceptLoop();#下一步        &amp;#125; finally &amp;#123;            try &amp;#123;                t">
+<meta name="twitter:description" content="RMI TCP Accept线程启动(2)">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -86,7 +86,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="sun-rmi-transport-tcp-TCPTransport"><a href="#sun-rmi-transport-tcp-TCPTransport" class="headerlink" title="sun.rmi.transport.tcp.TCPTransport"></a>sun.rmi.transport.tcp.TCPTransport</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public void <span class="function"><span class="title">run</span></span>() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            this.executeAcceptLoop();<span class="comment">#下一步</span></span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                this.serverSocket.close();</span><br><span class="line">            &#125; catch (IOException var7) &#123;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <p>RMI TCP Accept线程启动(2)</p>
+<a id="more"></a>
+<h3 id="sun-rmi-transport-tcp-TCPTransport"><a href="#sun-rmi-transport-tcp-TCPTransport" class="headerlink" title="sun.rmi.transport.tcp.TCPTransport"></a>sun.rmi.transport.tcp.TCPTransport</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public void <span class="function"><span class="title">run</span></span>() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            this.executeAcceptLoop();<span class="comment">#下一步</span></span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                this.serverSocket.close();</span><br><span class="line">            &#125; catch (IOException var7) &#123;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">private void <span class="function"><span class="title">executeAcceptLoop</span></span>() &#123;</span><br><span class="line">           <span class="keyword">if</span> (TCPTransport.tcpLog.isLoggable(Log.BRIEF)) &#123;</span><br><span class="line">               TCPTransport.tcpLog.log(Log.BRIEF, <span class="string">"listening on port "</span> + TCPTransport.this.getEndpoint().getPort());</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">               Socket var1 = null;</span><br><span class="line"></span><br><span class="line">               try &#123;</span><br><span class="line">                   var1 = this.serverSocket.accept();<span class="comment">#下一步</span></span><br><span class="line">                   InetAddress var16 = var1.getInetAddress();</span><br><span class="line">                   String var3 = var16 != null ? var16.getHostAddress() : <span class="string">"0.0.0.0"</span>;</span><br><span class="line"></span><br><span class="line">                   try &#123;</span><br><span class="line">                       TCPTransport.connectionThreadPool.execute(TCPTransport.this.new ConnectionHandler(var1, var3));</span><br><span class="line">                   &#125; catch (RejectedExecutionException var11) &#123;</span><br><span class="line">                       TCPTransport.closeSocket(var1);</span><br><span class="line">                       TCPTransport.tcpLog.log(Log.BRIEF, <span class="string">"rejected connection from "</span> + var3);</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125; catch (Throwable var15) &#123;</span><br><span class="line">                   Throwable var2 = var15;</span><br><span class="line"></span><br><span class="line">                   try &#123;</span><br><span class="line">                       <span class="keyword">if</span> (this.serverSocket.isClosed()) &#123;</span><br><span class="line">                           <span class="built_in">return</span>;</span><br><span class="line">                       &#125;</span><br><span class="line"></span><br><span class="line">                       try &#123;</span><br><span class="line">                           <span class="keyword">if</span> (TCPTransport.tcpLog.isLoggable(Level.WARNING)) &#123;</span><br><span class="line">                               TCPTransport.tcpLog.log(Level.WARNING, <span class="string">"accept loop for "</span> + this.serverSocket + <span class="string">" throws"</span>, var2);</span><br><span class="line">                           &#125;</span><br><span class="line">                       &#125; catch (Throwable var13) &#123;</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125; finally &#123;</span><br><span class="line">                       <span class="keyword">if</span> (var1 != null) &#123;</span><br><span class="line">                           TCPTransport.closeSocket(var1);</span><br><span class="line">                       &#125;</span><br><span class="line"></span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">if</span> (!(var15 instanceof SecurityException)) &#123;</span><br><span class="line">                       try &#123;</span><br><span class="line">                           TCPEndpoint.shedConnectionCaches();</span><br><span class="line">                       &#125; catch (Throwable var12) &#123;</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">if</span> (!(var15 instanceof Exception) &amp;&amp; !(var15 instanceof OutOfMemoryError) &amp;&amp; !(var15 instanceof NoClassDefFoundError)) &#123;</span><br><span class="line">                       <span class="keyword">if</span> (var15 instanceof Error) &#123;</span><br><span class="line">                           throw (Error)var15;</span><br><span class="line">                       &#125;</span><br><span class="line"></span><br><span class="line">                       throw new UndeclaredThrowableException(var15);</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line">                   <span class="keyword">if</span> (!this.continueAfterAcceptFailure(var15)) &#123;</span><br><span class="line">                       <span class="built_in">return</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
 
@@ -104,7 +106,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/10/RMI-2/" data-id="cjwq4dxud0001asuvhetjxqhd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/06/10/RMI-2/" data-id="cjwq4zldl0000vwuvx2wag12c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -112,6 +114,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2019/06/10/SpringApplication-Run/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          SpringApplication-Run
+        
+      </div>
+    </a>
   
   
     <a href="/2019/06/06/RMI/" id="article-nav-older" class="article-nav-link-wrap">
@@ -151,6 +162,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/06/10/SpringApplication-Run/">SpringApplication-Run</a>
+          </li>
         
           <li>
             <a href="/2019/06/10/RMI-2/">RMI线程启动(2)</a>
